@@ -29,6 +29,7 @@ for eg -> npx parcel index.html => npm run start (npm start)      [ for running 
 - Config driven UI - changing the ui based upon the backend data (config)
 
 
+## App design
 -Header
    -logo
    -Nav items
