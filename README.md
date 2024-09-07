@@ -84,7 +84,41 @@ const[list , setList] = useState(data) ;
 
 - why react fast -> in react 16 ues react fibre architecture -> Makes the linked list of all the components => when rendering needs to be done => traverse => does high priority task first => moves on => enhances performance 
 
-- React keys eye on the state variable  => change in state variable  => react re-renders the component
+- React keeps eye on the state variable  => change in state variable  => react re-renders the component
 
-- Diff algo -> to efficiently fine diff b/w actual and virtual dom [ part of reconciliation algo]
+- Diff algo -> to efficiently find diff b/w actual and virtual dom [ part of reconciliation algo]
 - reconciliation algo -> defines weather a particular component needs to be re-render or not if yes then how
+
+
+--------------------------------------------------------------------------------------------------
+
+2 types of architecture
+
+## Monolith => 
+- all code of diff services like of auth  , ui , api , backend , database is within same project 
+- is not a good way 
+- if changes need to be done  , then whole project needs to be redeployed
+
+
+## Microservices
+- all code of diff services is deployed independently
+- particular service can be deployed based upon the change
+
+- Here every service is deployed at diff port => services mapped to diff urls 
+
+
+### Webpage rendering way
+
+first =>  Web page loads  =>  API call  => render 
+second=>  web page loads => HTML structure renders => API call => re-renders the web page
+  
+In react we will use 2nd ways as it much more better approach and gives better UX
+
+## hooks 
+- Normal js fun given by react which have their own use case like useState() to manage state variable
+
+- If we want to do some task after the page is rendered we use use effect hook 
+- page rendered -> call back fun within the useEffect is called immediately
+
+
+
