@@ -18,9 +18,9 @@ let Body = () => {
     }
 
     // conditional rendering
-    if(listOfRestaurant.length === 0) return <Shimmer/>
+    // if(listOfRestaurant.length === 0) return <Shimmer/>
 
-    return (
+    return (listOfRestaurant.length === 0) ? <Shimmer/> : (
         <div className="body">
             
             <button 
