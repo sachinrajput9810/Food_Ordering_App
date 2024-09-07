@@ -19,6 +19,7 @@
     margin : 0 5px
 }
 
+
 .nav-items ul{
     display: flex;
     font-size: 24px;
@@ -77,4 +78,23 @@
 .search{
     padding: 10px;
 }
+
+
+.filter{
+    margin: 10px;
+    cursor: pointer;
+    padding: 6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
