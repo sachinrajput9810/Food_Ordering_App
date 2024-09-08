@@ -23,6 +23,5 @@
   },
   "browserslist": [
     "last 2 chrome version"
-  ],
-  "main": "index.js"
+  ]
 }
