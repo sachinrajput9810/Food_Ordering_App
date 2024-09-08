@@ -121,3 +121,16 @@ In react we will use 2nd ways as it much more better approach and gives better U
 - page rendered -> call back fun within the useEffect is called immediately
 
 - Note : DOM Manipulation in itself is an expensive process so while rendering the component it just changes the particular thing which got changed
+
+
+----------------------------------------------------------------------------------------------
+
+Notes -
+
+- useEffect( () => {} , [] )        takes callback fun and dependency array
+- If dependency array is not passed then callback fun will be called every time component is rendered
+- If dependency array is  passed empty then callback fun will be called once
+- If dependency array is  passed including the state variable then callback fun will be called every time state
+  variable changes
+
+- useState() hook always to be called inside the component

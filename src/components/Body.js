@@ -9,6 +9,8 @@ let Body = () => {
 
     const [listOfRestaurant , setListOfRestaurant] = useState([])
     const [searchText , setSearchText] = useState("")
+    const [filteredList , setFilteredList] = useState([])
+    
     
     useEffect(()=> {
         fetchData() ;
@@ -19,6 +21,7 @@ let Body = () => {
         const json = await data.json() ;
         console.log(json)
         setListOfRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilteredList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
     const handleFilter =  () => {
@@ -26,13 +29,13 @@ let Body = () => {
         setListOfRestaurant(filteredList)
     }
 
-    const handleOnChange = (e) => {
+    const handleOnChange = (e) => { 
         setSearchText(e.target.value)
     }
 
     const handleSearch = () => {
         const filteredList = listOfRestaurant.filter( (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
-        setListOfRestaurant(filteredList);
+        setFilteredList(filteredList)
     }
     // conditional rendering
     // if(listOfRestaurant.length === 0) return <Shimmer/>
@@ -65,7 +68,7 @@ let Body = () => {
             
             <div className="res-container">
                 {
-                    listOfRestaurant.map( (restaurant) => (
+                    filteredList.map( (restaurant) => (
                         <RestaurantCard key = {restaurant.info.id} resData =  {restaurant}/>
                     ))
                 }
