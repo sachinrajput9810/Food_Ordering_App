@@ -2,9 +2,13 @@ import RestaurantCard  from "./RestaurantCard"
 import {useState , useEffect} from "react"
 import Shimmer from "./Shimmer"
 
+
 let Body = () => {
 
+    // console.log("rendered")
+
     const [listOfRestaurant , setListOfRestaurant] = useState([])
+    const [searchText , setSearchText] = useState("")
     
     useEffect(()=> {
         fetchData() ;
@@ -17,20 +21,46 @@ let Body = () => {
         setListOfRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
+    const handleFilter =  () => {
+        const filteredList = listOfRestaurant.filter( (res) => res.info.avgRating >= 4.5 )
+        setListOfRestaurant(filteredList)
+    }
+
+    const handleOnChange = (e) => {
+        setSearchText(e.target.value)
+    }
+
+    const handleSearch = () => {
+        const filteredList = listOfRestaurant.filter( (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+        setListOfRestaurant(filteredList);
+    }
     // conditional rendering
     // if(listOfRestaurant.length === 0) return <Shimmer/>
 
     return (listOfRestaurant.length === 0) ? <Shimmer/> : (
         <div className="body">
             
-            <button 
-            className="filter"
-            onClick= { () => {
-                const filteredList = listOfRestaurant.filter( (res) => res.info.avgRating >= 4.5 )
-                setListOfRestaurant(filteredList)
-            }}
-            >Top Rated Restaurants
-            </button>
+            <div className="filter">
+
+                <div className="search">
+                    <input type="text" 
+                           className="search-box" 
+                           placeholder="Name of Restaurant " 
+                           value={searchText}
+                           onChange={handleOnChange}
+                    />
+
+                    <button className="search-btn" onClick={handleSearch}>Search</button>
+                </div>
+
+                <button 
+                    className="filter-btn"
+                    onClick= {handleFilter}
+                    >Top Rated Restaurants
+                </button>
+
+            
+            </div>
             
             
             <div className="res-container">

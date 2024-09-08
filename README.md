@@ -120,5 +120,4 @@ In react we will use 2nd ways as it much more better approach and gives better U
 - If we want to do some task after the page is rendered we use use effect hook 
 - page rendered -> call back fun within the useEffect is called immediately
 
-
-
+- Note : DOM Manipulation in itself is an expensive process so while rendering the component it just changes the particular thing which got changed
