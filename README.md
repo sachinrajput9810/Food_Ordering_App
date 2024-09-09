@@ -134,3 +134,27 @@ Notes -
   variable changes
 
 - useState() hook always to be called inside the component
+
+
+--------------------------------------------------------------------------------------------------
+
+## React Router
+
+- Use to route the diff pages
+- helps to create router and sets the router using the Router provider
+- Router error gives detailed error 
+
+- Why react a single page application 
+  => coz whole app is the single component and when we change route/pages we just changes the component to be rendered
+    instead of reloading the whole website
+
+
+### 2 types of Routing
+
+- Client Side Routing 
+  - No network calls are made only the the component is changed when routing to other path
+  - React Router is used for this type of routing
+
+- Server side routing 
+   - Network call is made to the server to get the new component to be rendered  
+   - React Router is not used for this type of routing

@@ -1,16 +1,16 @@
 import {LOGO_URL} from "../utils/constant" 
-import { useState , useEffect } from "react"; 
-
-
+import { useState  } from "react"; 
+import {Link} from "react-router-dom"
+ 
 
 let Header = () => {
 
-    console.log("Header Rendered") 
+    // console.log("Header Rendered") 
 
     const [text , setText] = useState("Login")
-    useEffect(() => {
-        console.log("Use effect called")
-    }  , [text])
+    // useEffect(() => {
+        // console.log("Use effect called")
+    // }  , [text])
 
 
     return (
@@ -22,9 +22,9 @@ let Header = () => {
 
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
+                    <li> <Link to = "/"> Home </Link> </li>
+                    <li> <Link to = "/about"> About Us </Link> </li>
+                    <li> <Link to = "/contact"> Contact Us </Link> </li>
                     <li>Cart</li>
                     <button className="login-btn" onClick={ () => { 
                         text === "Login" ? setText("Logout") : setText("Login")
