@@ -2,7 +2,8 @@ import RestaurantCard  from "./RestaurantCard"
 import {useState , useEffect} from "react"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
-
+import useOnlineStatus from "../utils/useOnlineStatus"
+import { RESTAURANT_LINK } from "../utils/constant"
 
 let Body = () => {
 
@@ -18,7 +19,7 @@ let Body = () => {
     } , [])
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.66500&lng=77.44770&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+        const data = await fetch(RESTAURANT_LINK)
         const json = await data.json() ;
         // console.log(json)
         setListOfRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
@@ -40,6 +41,11 @@ let Body = () => {
     }
     // conditional rendering
     // if(listOfRestaurant.length === 0) return <Shimmer/>
+
+    const onlineStatus = useOnlineStatus() 
+    if(onlineStatus === false) return (
+        <h1>Seems you are Offline !! Try Connecting to Internet</h1>
+    )
 
     return (listOfRestaurant.length === 0) ? <Shimmer/> : (
         <div className="body">

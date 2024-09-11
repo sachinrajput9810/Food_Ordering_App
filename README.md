@@ -158,3 +158,60 @@ Notes -
 - Server side routing 
    - Network call is made to the server to get the new component to be rendered  
    - React Router is not used for this type of routing
+
+
+
+-----------------------------------------------------------------------------------------
+
+## Class based Component
+- Class based component is a class which extends React.Component
+- It has a constructor method which is called when the component is created
+- After the constructor is called the render method is called
+
+- In case the component has child component then call happens like this => 
+-  lifecycle ==  constructor => render => componentDidMount
+
+- So first the constructor is called , then the render fun is called and then react updates the dom once the component is mounted on the UI then the componentDidMount i.e after the component is mounted . So all the API calls are made inside the componentDidMount
+
+- Note 
+
+-DOM manipulation costly process => to avoid multiple render in lifecycle => it render all the children components collectively then commit happens to optimize  
+
+- so react batch up the render first then batch up the commit thats why react is fast as it avoids multiple rendering 
+
+
+In short : Lifecycle
+
+- MOUNTING
+      - constructor() is called
+      - render() is called
+      - Dom gets updated
+      - ComponentDidMount() is called => API calls => setState() 
+
+- UPDATING 
+      - state variables are updated
+      - render() is called
+      - DOM gets updated
+      - ComponentDidUpdate() is called
+
+------------------------------------------------------------------------------------------
+
+- Optimization of app
+ 
+ - Divide your code into multiple modules or components which are responsible for one thing (single responsibility principle)
+ - Easy maintenance 
+ - testing
+ - Reusability
+
+
+- Custom Hooks
+ - Just like normal hooks only diff is we can wrap our own logic
+
+
+- To optimize our app , parcel(bundler) does chunking of the data , basically divides our app into multiple chuks of data
+- diff names => chunking  , code spliting , dynamic loading , lazy loading , on demand loading
+
+- Bundling should be done such that as soon as the bundle loads it should be able to render some particular feature
+- App => collections of bundle 
+
+- when => initial render is done => other pages are lazy loaded usually
