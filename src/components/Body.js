@@ -28,7 +28,7 @@ let Body = () => {
 
     const handleFilter =  () => {
         const filteredList = listOfRestaurant.filter( (res) => res.info.avgRating >= 4.5 )
-        setListOfRestaurant(filteredList)
+        setFilteredList(filteredList)
     }
 
     const handleOnChange = (e) => { 
