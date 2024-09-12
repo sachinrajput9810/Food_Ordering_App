@@ -215,3 +215,10 @@ In short : Lifecycle
 - App => collections of bundle 
 
 - when => initial render is done => other pages are lazy loaded usually
+
+
+---------------------------------------------------------------------------------------------------
+
+- Higher order component is the fun that takes a component enhances it and return that component
+
+- Lifting the state up 

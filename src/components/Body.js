@@ -1,9 +1,10 @@
-import RestaurantCard  from "./RestaurantCard"
+import RestaurantCard , {withPromotedLabel}   from "./RestaurantCard"
 import {useState , useEffect} from "react"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus"
 import { RESTAURANT_LINK } from "../utils/constant"
+
 
 let Body = () => {
 
@@ -12,6 +13,8 @@ let Body = () => {
     const [listOfRestaurant , setListOfRestaurant] = useState([])
     const [searchText , setSearchText] = useState("")
     const [filteredList , setFilteredList] = useState([])
+
+    const PromotedRestaurantCard = withPromotedLabel(RestaurantCard) ;
     
     
     useEffect(()=> {
@@ -50,21 +53,21 @@ let Body = () => {
     return (listOfRestaurant.length === 0) ? <Shimmer/> : (
         <div className="body">
             
-            <div className="filter">
+            <div className="filter p-4 mt-8 flex">
 
-                <div className="search">
+                <div className="search ">
                     <input type="text" 
-                           className="search-box" 
+                           className="search-box border-2 rounded-md border-black p-1" 
                            placeholder="Name of Restaurant " 
                            value={searchText}
                            onChange={handleOnChange}
                     />
 
-                    <button className="search-btn" onClick={handleSearch}>Search</button>
+                    <button className="search-btn m-4 bg-gray-400 p-1 px-5 rounded-md" onClick={handleSearch}>Search</button>
                 </div>
 
                 <button 
-                    className="filter-btn"
+                    className="filter-btn rounded-md my-4 p-1 px-4 bg-yellow-500 border-black"
                     onClick= {handleFilter}
                     >Top Rated Restaurants
                 </button>
@@ -73,17 +76,28 @@ let Body = () => {
             </div>
             
             
-            <div className="res-container">
+            <div className="res-container flex flex-wrap justify-between">
                 {
                     filteredList.map( (restaurant) => (
                         <Link 
                         to={"/restaurant/" + restaurant.info.id }
                         key = {restaurant.info.id}
                         className="custom-link"
-                        > <RestaurantCard  resData =  {restaurant}/> </Link>
+                        >
+                        {
+                            restaurant.info.avgRating >= 4.5 ? 
+                            (
+                                <PromotedRestaurantCard resData = {restaurant} />
+                            ) :
+                            (
+                                <RestaurantCard resData = {restaurant} />
+                            )
+
+                        }
+                        </Link>
                     ))
                 }
-            </div>
+            </div> 
         </div>
     )
 }
