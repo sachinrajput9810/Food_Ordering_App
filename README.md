@@ -222,3 +222,8 @@ In short : Lifecycle
 - Higher order component is the fun that takes a component enhances it and return that component
 
 - Lifting the state up 
+
+- Controlled and Uncontrolled components
+
+- Controlled component =>  react component which  can manage the state of their children component
+- UnControlled = >  react components which can only manage its state 

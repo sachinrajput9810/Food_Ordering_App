@@ -16,7 +16,7 @@ let Header = () => {
 
 
     return (
-        <div className="flex justify-between bg-orange-300 shadow-2xl  rounded-md">
+        <div className="flex justify-between bg-gradient-to-r from-orange-200 to-orange-600 shadow-2xl  rounded-md">
 
             <div className="">
               <img className="transition-transform duration-500 hover:rotate-360 w-32 rounded-full  " src={LOGO_URL} alt="eeewwe" />

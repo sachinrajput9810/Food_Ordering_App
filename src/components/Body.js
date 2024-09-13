@@ -76,7 +76,7 @@ let Body = () => {
             </div>
             
             
-            <div className="res-container flex flex-wrap justify-start">
+            <div className="res-container flex flex-wrap justify-between">
                 {
                     filteredList.map( (restaurant) => (
                         <Link 
