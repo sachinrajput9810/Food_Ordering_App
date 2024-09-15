@@ -277,3 +277,15 @@ AGAIN IMP FLOW
 - Unit testing - testing one unit/component of the app . for eg testing the header
 - Integration testing - testing the correct flow or the sync b/w the diff components in the app
 - End to end testing (e2e) - testing from the point user starts the website to leaving the website
+
+- Testing lib => jest and react testing lib
+
+### Setting up testing lib
+
+- Install react testing lib
+- Install jest
+- install babel dependency
+- configure babel
+- configure parcel  config file to disable default babel transpilation
+- JEST configuration -  npx jest --init 
+- install jsdom
