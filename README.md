@@ -267,4 +267,13 @@ AGAIN IMP FLOW
 - dispatch(Action)
 - Selector
 
-- Note - we should only subscribe to the specific item of the store not to the whole store while using selector 
+- Note - we should only subscribe to the specific item of the store not to the whole store while using selector
+
+
+-----------------------------------------------------------------------------------------
+
+## Testing -
+
+- Unit testing - testing one unit/component of the app . for eg testing the header
+- Integration testing - testing the correct flow or the sync b/w the diff components in the app
+- End to end testing (e2e) - testing from the point user starts the website to leaving the website

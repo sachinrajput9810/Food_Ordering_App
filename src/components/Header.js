@@ -23,6 +23,10 @@ let Header = () => {
     const cartItems = useSelector( (store) => store.cart.items )
     console.log(cartItems)
 
+    const handleSelect = () => {
+
+    }
+
     return (
         <div className="flex justify-between bg-gradient-to-r from-orange-200 to-orange-600 shadow-2xl  rounded-md">
 
@@ -31,18 +35,17 @@ let Header = () => {
             </div> 
 
             <div className="flex items-center">
-                <ul className="flex p-4 m-2">
-                    <li className="px-4"> Online Status : {onlineStatus ? "🟢" : "🔴"} </li>
-                    <li className="px-4"> <Link to = "/"> Home </Link> </li>
-                    <li className="px-4"> <Link to = "/about"> About Us </Link> </li>
-                    <li className="px-4"> <Link to = "/contact"> Contact Us </Link> </li>
-                    <li className="px-4"> <Link to = "/grocery"> Grocery </Link> </li>
-                    <li className="px-4 font-bold"> <Link to = "/cart"> Cart ({cartItems.length} items) </Link>    </li>
-                    <button className="login-btn px-4" onClick={ () => { 
+                <ul className="flex p-4 m-2 text-lg text-white font-semibold">
+                    <li className="px-3"> Online Status : {onlineStatus ? "🟢" : "🔴"} </li>
+                    <button className="px-3 font-bold  hover:text-black hover:border-b-2"  > <Link to = "/"> Home </Link> </button>
+                    <button className="px-3 font-bold  hover:text-black hover:border-b-2" > <Link to = "/about"> About Us </Link> </button>
+                    <button className="px-3 font-bold  hover:text-black hover:border-b-2" >  <Link to = "/contact"> Help and Support </Link> </button>
+                    <button className="px-3 font-bold  hover:text-black hover:border-b-2"> <Link to = "/cart"> Cart ({cartItems.length} items) </Link>    </button>
+                    <button className="login-btn " onClick={ () => { 
                         text === "Login" ? setText("Logout") : setText("Login")
                     }} >{text}</button>
                     
-                    <li>{Name}</li>
+                    <li className="px-3" >{Name}</li>
                 </ul>
               </div>
         </div>
