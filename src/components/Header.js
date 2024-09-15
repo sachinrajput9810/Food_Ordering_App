@@ -1,10 +1,16 @@
 import {LOGO_URL} from "../utils/constant" 
-import { useState  } from "react"; 
+import { useContext, useState  } from "react"; 
 import {Link} from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
  
 
 let Header = () => {
+
+    
+    
+    const {Name } = useContext(UserContext)
 
     // console.log("Header Rendered") 
 
@@ -14,6 +20,8 @@ let Header = () => {
     // }  , [text])
     const onlineStatus = useOnlineStatus()
 
+    const cartItems = useSelector( (store) => store.cart.items )
+    console.log(cartItems)
 
     return (
         <div className="flex justify-between bg-gradient-to-r from-orange-200 to-orange-600 shadow-2xl  rounded-md">
@@ -29,10 +37,12 @@ let Header = () => {
                     <li className="px-4"> <Link to = "/about"> About Us </Link> </li>
                     <li className="px-4"> <Link to = "/contact"> Contact Us </Link> </li>
                     <li className="px-4"> <Link to = "/grocery"> Grocery </Link> </li>
-                    <li>Cart</li>
+                    <li className="px-4 font-bold"> <Link to = "/cart"> Cart ({cartItems.length} items) </Link>    </li>
                     <button className="login-btn px-4" onClick={ () => { 
                         text === "Login" ? setText("Logout") : setText("Login")
                     }} >{text}</button>
+                    
+                    <li>{Name}</li>
                 </ul>
               </div>
         </div>

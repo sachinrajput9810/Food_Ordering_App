@@ -1,6 +1,6 @@
 import ItemList from "./ItemList"
 
-const MenuItemCategory = ({data , showItem , setShowIndex}) => {
+const MenuItemCategory = ({data , showItem , setShowIndex , dummy}) => {
 
 
 
@@ -20,7 +20,7 @@ const MenuItemCategory = ({data , showItem , setShowIndex}) => {
                 </div>
 
                 <div className=""> 
-                    {showItem &&  <ItemList items = {data.itemCards} />} 
+                    {showItem &&  <ItemList items = {data.itemCards} dummy = {dummy} />} 
                 </div>
             </div>
 

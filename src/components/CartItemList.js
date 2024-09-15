@@ -3,15 +3,12 @@ import { CDN_URL } from "../utils/constant";
 import { addItem } from "../utils/cartSlice";
 
 
-const ItemList = ({ items , dummy}) => {
+const CartItemList = ({ items , dummy}) => {
 
 //   console.log(items);
 
 const dispatch = useDispatch()
 
-const handleAddItem = (item) =>{
-  dispatch(addItem(item))
-}
 
 
 // console.log(dummy)
@@ -40,4 +37,4 @@ const handleAddItem = (item) =>{
   );
 };
 
-export default ItemList;
+export default CartItemList;

@@ -227,3 +227,44 @@ In short : Lifecycle
 
 - Controlled component =>  react component which  can manage the state of their children component
 - UnControlled = >  react components which can only manage its state 
+
+- React context => solves the problem of props drilling => basically create the center region eg parent and all the children are 
+- able to access the region which can store the data instead of passing the data to multiple levels deep down
+
+--------------------------------------------------------------------------------------------------
+
+### REDUX
+
+ - We usually use Redux toolkit in the modern websites
+
+- State management library
+- Used majorly when the app becomes more and more complex
+- Not necessary to use  , we can work with react context
+- Offers easy debugging
+
+- Redux toolkit (RTK)
+  - RTK contains Redux store to store majority of the data 
+  - Multiple slices in it with logical separation eg cart slice , user slice , theme slice
+  - Every slice store all the data regarding it like cart slice storing all data of cart slice
+
+
+- Lets say you click on  add in menu item => want to add that item in the cart
+
+- Flow =>    on click -> Action is dispatched -> calls the reducer ( call back fun) -> update the cart slice in redux store
+           ->  which further updates the cart in the header through selector (can say cart has subscribed to the store)
+
+
+AGAIN IMP FLOW 
+  -> Click on the add btn  on menu item -> dispatch an action -> calls the reducer fun -> updates the slice of cart 
+  -> with the help of selector it updates the cart (means the cart has subscribed to the redux store)
+
+
+
+- Install @redux/toolkit and react-redux
+- Build our store
+- connect store to app
+- Slice( cart slice)
+- dispatch(Action)
+- Selector
+
+- Note - we should only subscribe to the specific item of the store not to the whole store while using selector 
