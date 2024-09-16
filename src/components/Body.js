@@ -60,8 +60,9 @@ let Body = () => {
 
                 <div className="search ">
                     <input type="text" 
+                           data-testid = "searchInput"
                            className="search-box border-2 rounded-md border-black p-1" 
-                           placeholder="Name of Restaurant " 
+                           placeholder="Name of Restaurant" 
                            value={searchText}
                            onChange={handleOnChange}
                     />

@@ -1,8 +1,6 @@
 import { sum } from "../sum"
 
-test("this fun calculates the sum of 2 nos" , () => {
-    const result = sum(21,3)
-
-    // Assertion
-    expect(result).toBe(24)
+test("This is testing the sum function" , () => {
+    const result = sum(10,12)
+    expect(result).toBe(22)
 })

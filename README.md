@@ -289,3 +289,10 @@ AGAIN IMP FLOW
 - configure parcel  config file to disable default babel transpilation
 - JEST configuration -  npx jest --init 
 - install jsdom
+- Add @babel/preset-react - to make jxs work in test cases
+- Include @babel/preset-react   react in babel config
+- npm i -D @testing-library/jest-dom
+- test diff components of the app like restaurant card and header
+
+#### Integrating testing (test 2 or more components in which are integrated)
+
